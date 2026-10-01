@@ -56,15 +56,7 @@ describe('diff-tree with renamed data types', () => {
       'LN0',
     )!;
 
-    // exclude the type reference attributes, as they are de-referenced
-    const options = extendFilter(defaultBaseFilters, {
-      ...defaultFilters.Complete,
-      attributes: {
-        inclusive: false,
-        vals: ['LN0.lnType', 'DO.type', 'DA.type'],
-        except: [],
-      },
-    });
+    const options = extendFilter(defaultBaseFilters, defaultFilters.Complete);
     const ourHasher = newHasher(options);
     const theirHasher = newHasher(options);
 
